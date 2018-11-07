@@ -1,0 +1,13 @@
+version: '3'
+services:
+  zeppelin:
+    build: .
+    volumes:
+      - ./logs:/zeppelin/logs
+      - ./notebook:/zeppelin/notebook
+      - ./conf:/zeppelin/conf
+    environment:
+      - ZEPPELIN_LOG_DIR=/zeppelin/logs
+      - ZEPPELIN_NOTEBOOK_DIR=/zeppelin/notebook
+    ports:
+      - '8080:8080'
